@@ -13,14 +13,12 @@ export default function Privacy() {
         sx={{ minHeight: '100vh', textAlign: 'center'}}
       >
       <Grid item xs={3}>
-        <Typography variant="h4">Privacy Policy</Typography>
-        <Typography variant="body1">
+        <Typography variant="h4" fontWeight="bold">Privacy Policy</Typography>
+        <Typography variant="body1" sx={{maxWidth: '50vw'}}>
         Spotify was developed as an open source app powered by the Spotify Music Web API. By choosing to use this app, you agree to the use of your Spotify account username and data for your playlists.
-
-
+        <br /><br />
 None of the data used by Spoofify is stored or collected anywhere, and it is NOT shared with any third parties. All information is used solely for displaying your Receipt.
-
-
+        <br /><br />
 Although you can rest assured that your data is not being stored or used maliciously, if you would like to revoke Receiptify's permissions, you can visit your apps page and click "REMOVE ACCESS" on Spoofify. Here is a more detailed guide for doing so.
         </Typography>
       </Grid>
