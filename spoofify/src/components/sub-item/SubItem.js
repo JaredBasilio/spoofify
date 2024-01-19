@@ -6,9 +6,9 @@ export default function SubItem({item}) {
     <>
         <ListItem component="div">
             <ListItemAvatar>
-                <Avatar src={item?.image} variant="square"/>
+                <Avatar src={item?.image || item?.albumUrl} variant="square"/>
             </ListItemAvatar>
-            <ListItemText primary={item?.name}/>
+            <ListItemText primary={item?.name || item?.title} secondary={item?.artist}/>
         </ListItem>
         <Divider />
     </>
