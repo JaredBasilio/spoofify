@@ -5,7 +5,7 @@ import Playlists from '../../components/playlists/Playlists'
 import Songs from '../../components/songs/Songs'
 import PropTypes from 'prop-types';
 import SpotifyWebApi from 'spotify-web-api-node';
-import Test from '../test/Test'
+import Spoof from '../spoof/Spoof'
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "963ad489f2fd482a9358b132e7456df0",
@@ -52,6 +52,8 @@ export default function Dashboard({code}) {
   const [currentUser, setCurrentUser] = useState();
   const [wrappedType, setWrappedType] = useState('Black')
   const [value, setValue] = useState(0);
+  const [genre, setGenre] = useState('');
+  const [minutesListened, setMinutesListened] = useState('');
 
   const handleTabChange = (event, newValue) => {
     setValue(newValue);
@@ -110,7 +112,7 @@ export default function Dashboard({code}) {
   }, [accessToken, currentUser])
 
   return (
-    <Box padding='3em' display="flex">
+    <Box padding='3em' height="100vh" display="flex">
         <Box width="50%">
           <Typography variant="h5" fontWeight='bold'>Customize Wrapped</Typography>
           <Stack spacing={2}>
@@ -131,8 +133,8 @@ export default function Dashboard({code}) {
             </FormControl>
             <FormControl>
               <Typography variant="h6">Statistics</Typography>
-              <TextField id="top-genre" label="Top Genre" variant="outlined" dispay="flex" sx={{m:1}}/>
-              <TextField id="minutes-listened" label="Minutes Listened" variant="outlined" dispay="flex" sx={{m:1}}/>
+              <TextField id="top-genre" label="Top Genre" variant="outlined" dispay="flex" sx={{m:1}} onChange={e => setGenre(e.target.value)}/>
+              <TextField id="minutes-listened" label="Minutes Listened" variant="outlined" dispay="flex" sx={{m:1}} onChange={e => setMinutesListened(e.target.value)}/>
             </ FormControl>
             <FormControl>
               <Typography variant="h6">Wrapped Type</Typography>
@@ -148,8 +150,8 @@ export default function Dashboard({code}) {
           </FormControl>
         </Stack>
       </Box>
-      <Box width="10vw">
-        <Test />
+      <Box sx={{padding: '1em', align: 'center'}}width="50%">
+        <Spoof type={wrappedType} genre={genre} minutesListened={minutesListened}/>
       </Box>
     </Box>
   )

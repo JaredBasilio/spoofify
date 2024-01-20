@@ -5,7 +5,6 @@ import Container from '@mui/material/Container'
 import Dashboard from './pages/dashboard/Dashboard'
 import AuthProvider from './context/AuthProvider'
 import About from './pages/about/About'
-import Test from './pages/test/Test'
 import Privacy from './pages/privacy/Privacy'
 import {
   Routes,
@@ -23,7 +22,6 @@ function App() {
             <Route path="/login" element={<Login />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/privacy" element={<Privacy />}/>
-            <Route path="/test" element={<Test />}/>
           </Route>
         </Routes>
         <Footer />
